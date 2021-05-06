@@ -1,6 +1,17 @@
-#search-form {
+p h1 h2 h3 h4 h5 h6 {
+    font-family: 'Merriweather', serif;
+}
+
+#form form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    text-align: center;
+    width: 25vw;
+    margin-left: 35vw;
+    margin-right: 35vw;
+}
+
+body {
+    background-color: aquamarine;
 }
