@@ -21,6 +21,19 @@ export async function getAlbumData(artist) {
     return albumData
 }
 
+async function getSimilarAlbum(name) {
+    console.log("Name: " + name)
+    let similarResponse = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${name}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
+    let similarData = await similarResponse.json()
+    return similarData
+}
+
+async function getSimilarData(name) {
+    let similarResponse = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
+    let similarData = await similarResponse.json()
+    return similarData
+}
+
 function displayArtistData(artistData) {
     try {
         const artistDiv = document.getElementById("artist-info")
@@ -57,6 +70,20 @@ function displaySimilarData(simArtist, index) {
         // let simArtistDiv = document.getElementById(`artist${index}`)
     let simNameP = document.getElementById(`name${index}`)
     simNameP.textContent = simArtist.name
+    let simPicImg = document.getElementById(`pic${index}`)
+    let simAlbumData = getSimilarAlbum(simArtist.name)
+    console.log(simArtist.name)
+    simAlbumData.then(result => {
+        simPicImg.src = result.topalbums.album[0].image[2]["#text"]
+        if (!result.topalbums.album[0].image[2]["#text"]) {
+            simPicImg.src = result.topalbums.album[1].image[2]["#text"]
+        }
+    })
+    let simBioP = document.getElementById(`bio${index}`)
+    let simArtistData = getSimilarData(simArtist.name)
+    simArtistData.then(result => {
+        simBioP.textContent = result.artist.bio.content.slice(0, 500)
+    })
     let simLinkA = document.getElementById(`a${index}`)
     simLinkA.href = simArtist.url
     simLinkA.textContent = "Link to artist on last.fm"
