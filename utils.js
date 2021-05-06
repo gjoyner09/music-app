@@ -1,4 +1,9 @@
-export async function getArtistData(artist) {
+import { searchElement } from "./index.js"
+
+export async function getArtistData() {
+    console.log("i'm in the function")
+    let artist = searchElement.value
+    console.log("artist: " + artist)
     let artistResponse = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
     let artistData = await artistResponse.json()
     console.log(artistData)

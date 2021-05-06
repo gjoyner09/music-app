@@ -1,9 +1,11 @@
 import { getArtistData, getAlbumData } from "./utils.js"
 
-const searchElement = document.getElementById("search")
-const getArtistButton = document.getElementById("get-artist-button")
-getArtistButton.addEventListener('click', () => getArtistData(searchElement))
+export const searchElement = document.getElementById("search")
+export const getArtistButton = document.getElementById("get-artist-button")
+console.log(getArtistButton)
+getArtistButton.addEventListener('click', function(event) { event.preventDefault() })
+getArtistButton.addEventListener('click', getArtistData)
 
-getArtistData('Cher')
+// getArtistData('Cher')
 
-getAlbumData('Cher')    
+// getAlbumData('Cher')
