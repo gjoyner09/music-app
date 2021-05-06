@@ -29,6 +29,14 @@ h5 {
     color: #fff ;
 }
 
+#sim-artist-header {
+    font-size: 35px
+}
+
+#artist-header {
+    font-size: 35px
+}
+
 #form {
     display: flex;
     flex-direction: column;
@@ -60,6 +68,9 @@ h5 {
 @media (max-width:812px){
     #form input[type=submit]{
         margin-top: 5vw !important;
+    }
+    #grid {
+        flex-direction: column;
     }
 }
 

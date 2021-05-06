@@ -66,6 +66,7 @@ function displayArtistData(artistData) {
             // Creating the various elements that will be displayed to the front-end and appending them to the relative sections
             artistHeader = document.createElement("p")
             artistDiv.appendChild(artistHeader)
+            artistHeader.id = "artist-header"
             artistPic = document.createElement("img")
             artistDiv.appendChild(artistPic)
             artistName = document.createElement("p")
@@ -81,7 +82,7 @@ function displayArtistData(artistData) {
         let albumData = getAlbumData(artistData.artist.name)
             // Fulfilling the promise with .then and subsequently allocating the src of the <img> tag with a link of the artists most popular album
         albumData.then(result => {
-                artistPic.src = result.topalbums.album[0].image[2]["#text"]
+                artistPic.src = result.topalbums.album[0].image[3]["#text"]
             })
             // Creating text content for the artist's name
         artistName.textContent = artistData.artist.name
@@ -100,6 +101,7 @@ function displayArtistData(artistData) {
             // Allocating the text content for the link
         artistLink.textContent = "Link to artist on last.fm"
             // Catch block that will display an alert to the browser if the artist wasn't found
+        artistLink.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none"
     } catch (error) {
         alert("Your artist was not found. Please try again.")
     }
@@ -124,10 +126,10 @@ function displaySimilarData(simArtist, index) {
     let simAlbumData = getSimilarAlbum(simArtist.name)
         // Using .then to fulfil the promise, and subsequently using the album image link as the image tag src
     simAlbumData.then(result => {
-            simPicImg.src = result.topalbums.album[0].image[2]["#text"]
+            simPicImg.src = result.topalbums.album[0].image[3]["#text"]
                 // In the case where no image link is associated with that album, an if statement was used to then iterate to use the image of the next most popular album
             if (!result.topalbums.album[0].image[2]["#text"]) {
-                simPicImg.src = result.topalbums.album[1].image[2]["#text"]
+                simPicImg.src = result.topalbums.album[1].image[3]["#text"]
             }
         })
         // Allocating a variable for the biography <p> tag with interpolation based on the iteration of the array index
@@ -152,4 +154,5 @@ function displaySimilarData(simArtist, index) {
     simLinkA.href = simArtist.url
         // Setting the text for the link
     simLinkA.textContent = "Link to artist on last.fm"
+    simLinkA.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none"
 }
