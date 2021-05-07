@@ -1,32 +1,10 @@
-p {
+body {
     font-family: 'Merriweather', serif;
     color: #fff;
 }
 
 h1 {
-    font-family: 'Merriweather', serif;
-    color: #fff;
     text-align: center;
-}
-
-h2 {
-    font-family: 'Merriweather', serif;
-    color: #fff;
-}
-
-h3 {
-    font-family: 'Merriweather', serif;
-    color: #fff;
-}
-
-h4 {
-    font-family: 'Merriweather', serif;
-    color: #fff;
-}
-
-h5 {
-    font-family: 'Merriweather', serif;
-    color: #fff;
 }
 
 img {
@@ -82,7 +60,7 @@ body {
     margin-left: 2vw;
     margin-right: 2vw;
     margin-top: 2vw;
-    margin-bottom: 10vw;
+    margin-bottom: 5vw;
 }
 
 #artist-info {
@@ -118,6 +96,10 @@ body {
 
 .header-p {
     font-size: 20px;
+}
+
+.name-p {
+    margin-top: 0;
 }
 
 @media (max-width:812px) {
@@ -169,37 +151,3 @@ body {
         width: 100%
     }
 }
-
-
-
-/* #artist-info a {
-    font-size: 14px;
-    background-color: blueviolet;
-    border-radius: 20px;
-    border: blueviolet 1px solid;
-    padding: 10px 20px 10px 20px;
-    color: white;
-    text-decoration: none;
-}
-
-#artist-info a:hover {
-    background-color: transparent;
-    color: blueviolet;
-    cursor: pointer;
-}
-
-#search-results a {
-    font-size: 14px;
-    background-color: blueviolet;
-    border-radius: 20px;
-    border: blueviolet 1px solid;
-    padding: 10px 20px 10px 20px;
-    color: white;
-    text-decoration: none;
-}
-
-#search-results a:hover {
-    background-color: transparent;
-    color: blueviolet;
-    cursor: pointer;
-} */
