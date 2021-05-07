@@ -34,11 +34,11 @@ img {
 }
 
 #sim-artist-header {
-    font-size: 35px
+    font-size: 20px
 }
 
 #artist-header {
-    font-size: 35px
+    font-size: 20px
 }
 
 #form {
@@ -46,13 +46,10 @@ img {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 25vw;
-    margin-left: 35vw;
-    margin-right: 35vw;
 }
 
 #search {
-    width: 100%
+    width: 35%
 }
 
 @media (max-width:812px) {
