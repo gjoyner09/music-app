@@ -7,6 +7,7 @@ let artistBio = null
 let artistName = null
 let artistLink = null
 
+// adds the background colouring once the user searches for an artist
 export function addBackgroundClass() {
     let searchDiv = document.getElementById("artist-info")
     let resultDiv = document.getElementById("search-results")
@@ -107,9 +108,9 @@ function displayArtistData(artistData) {
         // Allocating the url href for a link to the searched artist's url
         artistLink.href = artistData.artist.url
             // Allocating the text content for the link
-        artistLink.textContent = "Link to artist on last.fm"
+        artistLink.textContent = "Learn more"
             // Catch block that will display an alert to the browser if the artist wasn't found
-        artistLink.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none; padding: 5px"
+        artistLink.style.cssText = "font-size: 16px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none; padding-left: 20px; padding-right: 20px; padding-top: 4px; padding-bottom: 4px"
     } catch (error) {
         alert("Your artist was not found. Please try again.")
     }
@@ -161,6 +162,7 @@ function displaySimilarData(simArtist, index) {
         // Allocating the href of the <a> tag to be the url of the similar artist's retrieved data
     simLinkA.href = simArtist.url
         // Setting the text for the link
-    simLinkA.textContent = "Link to artist on last.fm"
-    simLinkA.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none; padding: 5px;"
+    simLinkA.textContent = "Learn more"
+        // adding style to the link
+    simLinkA.style.cssText = "font-size: 16px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none; padding-left: 20px; padding-right: 20px; padding-top: 4px; padding-bottom: 4px"
 }
