@@ -109,7 +109,7 @@ function displayArtistData(artistData) {
             // Allocating the text content for the link
         artistLink.textContent = "Link to artist on last.fm"
             // Catch block that will display an alert to the browser if the artist wasn't found
-        artistLink.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none"
+        artistLink.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none; padding: 5px"
     } catch (error) {
         alert("Your artist was not found. Please try again.")
     }
@@ -162,5 +162,5 @@ function displaySimilarData(simArtist, index) {
     simLinkA.href = simArtist.url
         // Setting the text for the link
     simLinkA.textContent = "Link to artist on last.fm"
-    simLinkA.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none"
+    simLinkA.style.cssText = "font-size: 20px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none; padding: 5px;"
 }
