@@ -30,33 +30,6 @@ img {
     width: 35%
 }
 
-@media (max-width:812px) {
-    #form {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        text-align: left;
-        width: 0vw;
-        margin-left: 0vw;
-        margin-right: 0vw;
-    }
-}
-
-@media (max-width:812px) {
-    #form input[type=text] {
-        font-size: 20px !important;
-    }
-}
-
-@media (max-width:812px) {
-    #form input[type=submit] {
-        margin-top: 5vw !important;
-    }
-    #grid {
-        flex-direction: column;
-    }
-}
-
 #form input[type=submit] {
     font-size: 20px;
     background-color: blueviolet;
@@ -127,4 +100,54 @@ body {
 
 .name-p {
     margin-top: 0;
+}
+
+@media (max-width:812px) {
+    #form input[type=text] {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width:812px) {
+    #form input[type=submit] {
+        margin-top: 5vw !important;
+    }
+    #grid {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:812px) {
+    #form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        width: 60%
+    }
+    #artist-info {
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        padding: 0%;
+        margin-right: 0vw;
+        margin-bottom: 50px;
+    }
+    #search-results {
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        padding: 0%;
+        margin-right: 0vw;
+    }
+    #artist-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 100px
+    }
+    #search {
+        display: flex;
+        width: 100%
+    }
 }
