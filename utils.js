@@ -3,9 +3,11 @@ import { searchElement } from "./index.js"
 // Variables defined to allow for access within function code blocks
 let artistHeader = null
 let artistPic = null
-let artistBio = null
 let artistName = null
+let artistBio = null
+let artistBioShort = null
 let artistLink = null
+
 
 // adds the background gray to the page when the user searches for their first artist
 export function addBackgroundClass() {
@@ -73,20 +75,29 @@ function displayArtistData(artistData) {
         if (artistDiv.children.length === 0) {
             // Creating the various elements that will be displayed to the front-end and appending them to the relative sections
             artistHeader = document.createElement("p")
-            artistDiv.appendChild(artistHeader)
+            artistHeader.classList.add("header-p")
             artistHeader.id = "artist-header"
+            artistDiv.appendChild(artistHeader)
             artistPic = document.createElement("img")
+            artistPic.classList.add("artist-class")
             artistDiv.appendChild(artistPic)
             artistName = document.createElement("p")
+            artistName.classList.add("artist-class")
             artistDiv.appendChild(artistName)
             artistBio = document.createElement("p")
+            artistBio.classList.add("artist-class")
+            artistBio.id = "long-bio"
             artistDiv.appendChild(artistBio)
+            artistBioShort = document.createElement("p")
+            artistBioShort.classList.add("artist-class")
+            artistBioShort.id = "short-bio"
+            artistDiv.appendChild(artistBioShort)
             artistLink = document.createElement("a")
+            artistLink.classList.add("artist-class")
             artistDiv.appendChild(artistLink)
         }
-        // Creating text content for the header, with string interpolation for the artist name
+        // adding the header for the searched artist section
         artistHeader.textContent = `If you like ${artistData.artist.name}...`
-        artistHeader.classList.add("header-p")
             // Calling to get the album data for the artist
         let albumData = getAlbumData(artistData.artist.name)
             // Fulfilling the promise with .then and subsequently allocating the src of the <img> tag with a link of the artists most popular album
@@ -105,6 +116,15 @@ function displayArtistData(artistData) {
         } else {
             artistBio.textContent = artistData.artist.bio.content
         }
+        // adding a short bio - this will only be displayed on mobile view
+        if (artistData.artist.bio.content.length > 600) {
+            artistBioShort.textContent = artistData.artist.bio.content.slice(0, 600)
+            let space = artistData.artist.bio.content.indexOf(" ", 600)
+            artistBioShort.textContent += artistData.artist.bio.content.slice(600, space)
+            artistBioShort.textContent += " ..."
+        } else {
+            artistBio.textContent = artistData.artist.bio.content
+        }
         // Allocating the url href for a link to the searched artist's url
         artistLink.href = artistData.artist.url
             // Allocating the text content for the link
@@ -112,7 +132,8 @@ function displayArtistData(artistData) {
             // Catch block that will display an alert to the browser if the artist wasn't found
         artistLink.style.cssText = "font-size: 16px; background-color: blueviolet; border-radius: 20px; border: blueviolet 1px solid; color: white; margin-top: 1vw; width: 20vw; text-decoration: none; padding-left: 20px; padding-right: 20px; padding-top: 4px; padding-bottom: 4px"
     } catch (error) {
-        alert("Your artist was not found. Please try again.")
+        // alert("Your artist was not found. Please try again.")
+        console.log(error.message)
     }
 }
 

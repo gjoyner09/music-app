@@ -51,7 +51,7 @@ img {
 }
 
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(20, 20, 20);
 }
 
 #grid {
@@ -102,6 +102,10 @@ body {
     margin-top: 0;
 }
 
+#short-bio {
+    display: none;
+}
+
 @media (max-width:812px) {
     #form input[type=text] {
         font-size: 20px !important;
@@ -122,22 +126,29 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        text-align: left;
-        width: 60%
+        width: 100%
+    }
+    #get-artist-button {
+        margin-bottom: 30px;
     }
     #artist-info {
         width: 90%;
         align-items: center;
         justify-content: center;
-        padding: 0%;
+        padding: 10px;
         margin-right: 0vw;
         margin-bottom: 50px;
+        padding-bottom: 30px;
+    }
+    .artist-class {
+        margin: 3%;
+        width: 90%;
     }
     #search-results {
         width: 90%;
         align-items: center;
         justify-content: center;
-        padding: 0%;
+        padding: 10px;
         margin-right: 0vw;
     }
     #artist-div {
@@ -147,7 +158,35 @@ body {
         margin-bottom: 100px
     }
     #search {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%
+    }
+    .artist-div {
+        display: block;
+        margin-bottom: 2vw;
+    }
+    .artist-block-1 {
+        padding: 3%;
+        padding-top: 20px;
+        width: 90%;
+    }
+    .artist-block-2 {
+        width: 90%;
+        padding: 3%;
+    }
+    .header-p {
+        padding: 10px;
+    }
+    #long-bio {
+        display: none;
+    }
+    #short-bio {
         display: flex;
-        width: 100%
+        padding-bottom: 10px;
+    }
+    .bio-p {
+        padding-bottom: 20px;
     }
 }
