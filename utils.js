@@ -7,6 +7,13 @@ let artistBio = null
 let artistName = null
 let artistLink = null
 
+export function addBackgroundClass() {
+    let searchDiv = document.getElementById("artist-info")
+    let resultDiv = document.getElementById("search-results")
+    searchDiv.classList.add("background-class")
+    resultDiv.classList.add("background-class")
+}
+
 // Asynchronous function to getch music artist data from API
 export async function getArtistData() {
     // variable to assign the value of the input by the user
@@ -77,20 +84,21 @@ function displayArtistData(artistData) {
         }
         // Creating text content for the header, with string interpolation for the artist name
         artistHeader.textContent = `If you like ${artistData.artist.name}...`
+        artistHeader.classList.add("header-p")
             // Calling to get the album data for the artist
         let albumData = getAlbumData(artistData.artist.name)
             // Fulfilling the promise with .then and subsequently allocating the src of the <img> tag with a link of the artists most popular album
         albumData.then(result => {
-                artistPic.src = result.topalbums.album[0].image[2]["#text"]
+                artistPic.src = result.topalbums.album[0].image[3]["#text"]
             })
             // Creating text content for the artist's name
         artistName.textContent = artistData.artist.name
             // Creating text content for the artist's biography
-            // If the bio is more than 700 characters, the text will stop at the first space after the 700th character and add "..." to the end
-        if (artistData.artist.bio.content.length > 700) {
-            artistBio.textContent = artistData.artist.bio.content.slice(0, 700)
-            let spaceIndex = artistData.artist.bio.content.indexOf(" ", 700)
-            artistBio.textContent += artistData.artist.bio.content.slice(700, spaceIndex)
+            // artistBio.textContent = artistData.artist.bio.content
+        if (artistData.artist.bio.content.length > 3000) {
+            artistBio.textContent = artistData.artist.bio.content.slice(0, 3000)
+            let space = artistData.artist.bio.content.indexOf(" ", 3000)
+            artistBio.textContent += artistData.artist.bio.content.slice(3000, space)
             artistBio.textContent += " ..."
         } else {
             artistBio.textContent = artistData.artist.bio.content
@@ -124,10 +132,10 @@ function displaySimilarData(simArtist, index) {
     let simAlbumData = getSimilarAlbum(simArtist.name)
         // Using .then to fulfil the promise, and subsequently using the album image link as the image tag src
     simAlbumData.then(result => {
-            simPicImg.src = result.topalbums.album[0].image[2]["#text"]
+            simPicImg.src = result.topalbums.album[0].image[3]["#text"]
                 // In the case where no image link is associated with that album, an if statement was used to then iterate to use the image of the next most popular album
-            if (!result.topalbums.album[0].image[2]["#text"]) {
-                simPicImg.src = result.topalbums.album[1].image[2]["#text"]
+            if (!result.topalbums.album[0].image[3]["#text"]) {
+                simPicImg.src = result.topalbums.album[1].image[3]["#text"]
             }
         })
         // Allocating a variable for the biography <p> tag with interpolation based on the iteration of the array index
@@ -137,10 +145,10 @@ function displaySimilarData(simArtist, index) {
         // Fulfilling the promise with .then and subsequently creating text content of the similar artists' biography content
         // If the bio is more than 700 characters, the text will stop at the first space after the 700th character and add "..." to the end
     simArtistData.then(result => {
-            if (result.artist.bio.content.length > 700) {
-                simBioP.textContent = result.artist.bio.content.slice(0, 700)
-                let space = result.artist.bio.content.indexOf(" ", 700)
-                simBioP.textContent += result.artist.bio.content.slice(700, space)
+            if (result.artist.bio.content.length > 600) {
+                simBioP.textContent = result.artist.bio.content.slice(0, 600)
+                let space = result.artist.bio.content.indexOf(" ", 600)
+                simBioP.textContent += result.artist.bio.content.slice(600, space)
                 simBioP.textContent += " ..."
             } else {
                 simBioP.textContent = result.artist.bio.content

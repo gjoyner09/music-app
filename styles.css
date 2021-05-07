@@ -1,32 +1,36 @@
 p {
     font-family: 'Merriweather', serif;
-    color: #fff ;
+    color: #fff;
 }
 
 h1 {
     font-family: 'Merriweather', serif;
-    color: #fff ;
+    color: #fff;
     text-align: center;
 }
 
 h2 {
     font-family: 'Merriweather', serif;
-    color: #fff ;
+    color: #fff;
 }
 
 h3 {
     font-family: 'Merriweather', serif;
-    color: #fff ;
+    color: #fff;
 }
 
 h4 {
     font-family: 'Merriweather', serif;
-    color: #fff ;
+    color: #fff;
 }
 
 h5 {
     font-family: 'Merriweather', serif;
-    color: #fff ;
+    color: #fff;
+}
+
+img {
+    width: 100%;
 }
 
 #form {
@@ -39,7 +43,11 @@ h5 {
     margin-right: 35vw;
 }
 
-@media (max-width:812px){
+#search {
+    width: 100%
+}
+
+@media (max-width:812px) {
     #form {
         display: flex;
         flex-direction: column;
@@ -51,21 +59,19 @@ h5 {
     }
 }
 
-@media (max-width:812px){
-#form input[type=text]{
-    font-size: 20px !important;
-}
+@media (max-width:812px) {
+    #form input[type=text] {
+        font-size: 20px !important;
+    }
 }
 
-@media (max-width:812px){
-    #form input[type=submit]{
+@media (max-width:812px) {
+    #form input[type=submit] {
         margin-top: 5vw !important;
     }
 }
 
-
-
-#form input[type=submit]{
+#form input[type=submit] {
     font-size: 20px;
     background-color: blueviolet;
     border-radius: 20px;
@@ -81,7 +87,7 @@ h5 {
     cursor: pointer;
 }
 
-#form input[type=text]{
+#form input[type=text] {
     font-size: 35px;
 }
 
@@ -100,27 +106,39 @@ body {
 
 #artist-info {
     margin-right: 2vw;
+    width: 30%;
+    padding: 1%;
 }
 
-#artist0 {
+#search-results {
+    width: 70%;
+    padding: 1%;
+}
+
+.background-class {
+    background-color: rgba(137, 43, 226, 0.07);
+    border-radius: 15px;
+}
+
+.artist-block-1 {
+    padding: 3%;
+    width: 40%;
+}
+
+.artist-block-2 {
+    width: 60%;
+    padding: 3%;
+}
+
+.artist-div {
+    display: flex;
     margin-bottom: 2vw;
 }
 
-#artist1 {
-    margin-bottom: 2vw;
+.header-p {
+    font-size: 20px;
 }
 
-#artist2 {
-    margin-bottom: 2vw;
-}
-
-#artist3 {
-    margin-bottom: 2vw;
-}
-
-#artist4 {
-    margin-bottom: 2vw;
-}
 
 /* #artist-info a {
     font-size: 14px;
