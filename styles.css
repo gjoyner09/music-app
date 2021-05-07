@@ -33,6 +33,14 @@ img {
     width: 100%;
 }
 
+#sim-artist-header {
+    font-size: 35px
+}
+
+#artist-header {
+    font-size: 35px
+}
+
 #form {
     display: flex;
     flex-direction: column;
@@ -68,6 +76,9 @@ img {
 @media (max-width:812px) {
     #form input[type=submit] {
         margin-top: 5vw !important;
+    }
+    #grid {
+        flex-direction: column;
     }
 }
 
