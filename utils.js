@@ -22,7 +22,7 @@ export async function getArtistData() {
     // variable to assign the value of the input by the user
     let artist = searchElement.value.replace('&', '%26').replace(' and ', ' %26 ')
         // Variable to assign the API fetch request, with interpolation of artist in the API URL
-    let artistResponse = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
+    let artistResponse = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
         // Variable assiging the JSON data as an object
     let artistData = await artistResponse.json()
         // Function call to use the data retrieved to now display the values we want to show on the front-end
@@ -35,7 +35,7 @@ export async function getArtistData() {
 export async function getAlbumData(artist) {
     artist = artist.replace('&', '%26').replace(' and ', ' %26 ')
         // Variable to assign the API fetch request for the albums of the artist, with string interpolation in the API URL
-    let albumResponse = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${artist}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
+    let albumResponse = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${artist}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
         // Variable assigning the JSON album data to an object
     let albumData = await albumResponse.json()
         // Returning the album data
@@ -47,7 +47,7 @@ export async function getAlbumData(artist) {
 async function getSimilarAlbum(name) {
     name = name.replace('&', '%26').replace(' and ', ' %26 ')
         // Variable to assign the API fetch request for the top albums object, with string interpolation for the artist name
-    let similarResponse = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${name}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
+    let similarResponse = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${name}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
         // Variable assigning the JSON similar album data as an object
     let similarData = await similarResponse.json()
         // Returning the similar albums data
@@ -58,7 +58,7 @@ async function getSimilarAlbum(name) {
 async function getSimilarData(name) {
     name = name.replace('&', '%26').replace(' and ', ' %26 ')
         // Variable to assign the API fetch request for the similar artists, with string inpterolation for the artist name
-    let similarResponse = await fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
+    let similarResponse = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${name}&api_key=ecab99fdbdb2172b0d9570b823600f51&format=json`)
         // Variable assigning the JSON similar artists data as an object
     let similarData = await similarResponse.json()
         // Returning the similar artists data
